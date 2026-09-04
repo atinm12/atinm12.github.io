@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- used AI to develop the basic page structure-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atin Mathur</title>
@@ -12,9 +13,25 @@
       padding: 3rem 1.5rem;
       line-height: 1.6;
       color: #1a1a1a;
+      
     }
     h1 {
       margin-bottom: 0.5rem;
+    }
+    /* used AI to style the experience section */
+    h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .experience-item {
+      margin-bottom: 1.5rem;
+    }
+    .experience-item h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.05rem;
+    }
+    .experience-item p {
+      margin: 0;
     }
   </style>
 </head>
@@ -23,5 +40,30 @@
     <h1>Atin Mathur</h1>
     <p>Hi! My name is Atin Mathur and I'm from Princeton, NJ. I'm a student at Carnegie Mellon University majoring in Information Systems and Human-Computer Interaction. On campus, you can find me in different organizations around campus, taking classes, or eating halal food.</p>
   </header>
+
+  <!-- used AI to build the experience section -->
+  <section>
+    <h2>Experience</h2>
+
+    <div class="experience-item">
+      <h3>Research Assistant &mdash; CMU McLearn Lab</h3>
+      <p>This summer, I worked as a Research Assistant at CMU's McLearn Lab under Prof. Bruce M. McLaren, developing and evaluating an LLM-powered Socratic dialogue tutoring system targeting students' decimal misconceptions.</p>
+    </div>
+
+    <div class="experience-item">
+      <h3>TailorTab</h3>
+      <p>TailorTab is a Chrome extension that surfaces search results tailored to a user's common search patterns and the time of day. It placed 3rd out of 1,300+ teams at the Mind the Product World Product Day Hackathon.</p>
+    </div>
+
+    <div class="experience-item">
+      <h3>Zetheta Algorithms</h3>
+      <p>At Zetheta Algorithms, I built an autonomous financial research agent that plans and executes multi-step research tasks, pulling from 10+ tools and a 3-layer memory system to limit hallucinations.</p>
+    </div>
+
+    <div class="experience-item">
+      <h3>Riseva</h3>
+      <p>Riseva is an AI-powered educational tool with 15 customizable parameters that lets teachers guide an LLM's output to shape student thinking, delivering personalized student responses and real-time insights into how students are reasoning. It placed 2nd out of 60+ teams at ProdHacks.</p>
+    </div>
+  </section>
 </body>
 </html>
