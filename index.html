@@ -1,69 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- used AI to develop the basic page structure-->
+<!-- used AI to develop the basic page structure -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atin Mathur</title>
   <style>
+    /* used AI to build the clean, modern styling for the page */
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f8fa;
+      --text: #1a1a1a;
+      --muted: #5c6470;
+      --border: #e4e7ec;
+      --accent: #2563eb;
+      --accent-soft: #eff4ff;
+      --radius: 12px;
+      --max-width: 720px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem; /* offset for the sticky nav */
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
+      margin: 0;
       line-height: 1.6;
-      color: #1a1a1a;
-      
+      color: var(--text);
+      background: var(--bg);
     }
-    h1 {
-      margin-bottom: 0.5rem;
+
+    /* ---- Top navigation menu ---- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid var(--border);
     }
-    /* used AI to style the experience section */
-    h2 {
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .experience-item {
-      margin-bottom: 1.5rem;
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      color: var(--text);
     }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ---- Layout ---- */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    section { margin-bottom: 3.5rem; }
+    section h2 {
+      font-size: 1.5rem;
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-soft);
+    }
+
+    /* ---- About / hero ---- */
+    .about-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+    /* Photo placeholder — replace the <div> below with <img src="your-photo.jpg" alt="Atin Mathur" class="photo"> */
+    .photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #dbe4ff, #eef2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--border);
+    }
+    .about-header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .about-header .tagline {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+
+    /* ---- Chips (interests / skills) ---- */
+    .subhead {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin: 1.5rem 0 0.6rem;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .chips li {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    /* ---- Experience ---- */
+    .experience-item { margin-bottom: 1.5rem; }
     .experience-item h3 {
       margin: 0 0 0.25rem;
       font-size: 1.05rem;
     }
-    .experience-item p {
-      margin: 0;
+    .experience-item p { margin: 0; }
+
+    /* ---- Projects ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
     }
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      background: var(--surface);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+    .project-card h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+    .project-card p { margin: 0 0 0.75rem; color: var(--muted); font-size: 0.92rem; }
+    .project-card a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+    .project-card a:hover { text-decoration: underline; }
+    .project-card.placeholder {
+      border-style: dashed;
+      background: transparent;
+    }
+    .project-card.placeholder h3 { color: var(--muted); }
+
+    /* ---- Contact ---- */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .contact-links a {
+      display: inline-block;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    .contact-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ---- Footer / credits ---- */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--muted); }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Atin Mathur</h1>
-    <p>Hi! My name is Atin Mathur and I'm from Princeton, NJ. I'm a student at Carnegie Mellon University majoring in Information Systems and Human-Computer Interaction. On campus, you can find me in different organizations around campus, taking classes, or eating halal food.</p>
-  </header>
-
-  <!-- used AI to build the experience section -->
-  <section>
-    <h2>Experience</h2>
-
-    <div class="experience-item">
-      <h3>Research Assistant &mdash; CMU McLearn Lab</h3>
-      <p>This summer, I worked as a Research Assistant at CMU's McLearn Lab under Prof. Bruce M. McLaren, developing and evaluating an LLM-powered Socratic dialogue tutoring system targeting students' decimal misconceptions.</p>
+  <!-- used AI to build the sticky navigation menu -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="#about">Atin Mathur</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
+  </nav>
 
-    <div class="experience-item">
-      <h3>TailorTab</h3>
-      <p>TailorTab is a Chrome extension that surfaces search results tailored to a user's common search patterns and the time of day. It placed 3rd out of 1,300+ teams at the Mind the Product World Product Day Hackathon.</p>
-    </div>
+  <main>
+    <!-- used AI to build the About section layout; bio text written by Atin Mathur -->
+    <section id="about">
+      <div class="about-header">
+        <!-- Photo placeholder: swap this div for an <img> tag with your own photo -->
+        <div class="photo" aria-label="Photo placeholder">AM</div>
+        <div>
+          <h1>Atin Mathur</h1>
+          <p class="tagline">Information Systems &amp; HCI student at Carnegie Mellon</p>
+        </div>
+      </div>
 
-    <div class="experience-item">
-      <h3>Zetheta Algorithms</h3>
-      <p>At Zetheta Algorithms, I built an autonomous financial research agent that plans and executes multi-step research tasks, pulling from 10+ tools and a 3-layer memory system to limit hallucinations.</p>
-    </div>
+      <p>Hi! My name is Atin Mathur and I'm from Princeton, NJ. I'm a student at Carnegie Mellon University majoring in Information Systems and Human-Computer Interaction. On campus, you can find me in different organizations around campus, taking classes, or eating halal food.</p>
 
-    <div class="experience-item">
-      <h3>Riseva</h3>
-      <p>Riseva is an AI-powered educational tool with 15 customizable parameters that lets teachers guide an LLM's output to shape student thinking, delivering personalized student responses and real-time insights into how students are reasoning. It placed 2nd out of 60+ teams at ProdHacks.</p>
-    </div>
-  </section>
+      <!-- Placeholder interests — replace with your own -->
+      <p class="subhead">Interests</p>
+      <ul class="chips">
+        <li>Human-Computer Interaction</li>
+        <li>AI in Education</li>
+        <li>Product Design</li>
+        <li>Campus Organizations</li>
+        <li>Halal Food</li>
+      </ul>
+
+      <!-- Placeholder skills — replace with your own -->
+      <p class="subhead">Skills</p>
+      <ul class="chips">
+        <li>Skill 1</li>
+        <li>Skill 2</li>
+        <li>Skill 3</li>
+        <li>Skill 4</li>
+        <li>Skill 5</li>
+      </ul>
+    </section>
+
+    <!-- used AI to build the experience section; experience descriptions written by Atin Mathur -->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="experience-item">
+        <h3>Research Assistant &mdash; CMU McLearn Lab</h3>
+        <p>This summer, I worked as a Research Assistant at CMU's McLearn Lab under Prof. Bruce M. McLaren, developing and evaluating an LLM-powered Socratic dialogue tutoring system targeting students' decimal misconceptions.</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>TailorTab</h3>
+        <p>TailorTab is a Chrome extension that surfaces search results tailored to a user's common search patterns and the time of day. It placed 3rd out of 1,300+ teams at the Mind the Product World Product Day Hackathon.</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>Zetheta Algorithms</h3>
+        <p>At Zetheta Algorithms, I built an autonomous financial research agent that plans and executes multi-step research tasks, pulling from 10+ tools and a 3-layer memory system to limit hallucinations.</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>Riseva</h3>
+        <p>Riseva is an AI-powered educational tool with 15 customizable parameters that lets teachers guide an LLM's output to shape student thinking, delivering personalized student responses and real-time insights into how students are reasoning. It placed 2nd out of 60+ teams at ProdHacks.</p>
+      </div>
+    </section>
+
+    <!-- used AI to build the projects section with placeholder cards -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+
+        <!-- This portfolio project itself -->
+        <div class="project-card">
+          <h3>This Portfolio Website</h3>
+          <p>The site you're looking at &mdash; a personal portfolio built from scratch with HTML and CSS, hosted on GitHub Pages.</p>
+          <a href="https://github.com/atinm12/atinm12.github.io" target="_blank" rel="noopener">View source &rarr;</a>
+        </div>
+
+        <!-- Placeholder cards for future projects — replace with real projects -->
+        <div class="project-card placeholder">
+          <h3>Project Title</h3>
+          <p>A short description of what this project does and the tools you used to build it.</p>
+          <a href="#">Learn more &rarr;</a>
+        </div>
+
+        <div class="project-card placeholder">
+          <h3>Project Title</h3>
+          <p>A short description of what this project does and the tools you used to build it.</p>
+          <a href="#">Learn more &rarr;</a>
+        </div>
+
+        <div class="project-card placeholder">
+          <h3>Project Title</h3>
+          <p>A short description of what this project does and the tools you used to build it.</p>
+          <a href="#">Learn more &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- used AI to build the contact section; update the LinkedIn link with your profile -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out &mdash; I'd love to connect.</p>
+      <div class="contact-links">
+        <a href="mailto:atinmathur12@gmail.com">Email</a>
+        <a href="https://github.com/atinm12" target="_blank" rel="noopener">GitHub</a>
+        <!-- Replace # with your LinkedIn profile URL -->
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Credits: page structure, styling, and layout developed with the help of AI (Claude).
+       All bio and experience text written by Atin Mathur. No external images, text, or
+       templates were used; the photo above is a placeholder to be replaced with a personal photo. -->
+  <footer>
+    <p>&copy; 2026 Atin Mathur &middot; Built with the help of AI (Claude). All written content by Atin Mathur.</p>
+  </footer>
 </body>
 </html>
