@@ -13,8 +13,8 @@
   --font-display: 'Anton', 'Oswald', 'Arial Narrow', sans-serif;
   --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --max-width: 1200px;   /* wider page so content stays roomy with the wider timeline rail */
-  --rail-w: 280px;       /* left timeline column width — pushes the menu/line rightward */
+  --max-width: 1200px;
+  --rail-w: 96px;        /* narrow left timeline column — numbers/line hug the left edge */
 }
 
 * { box-sizing: border-box; }
@@ -113,14 +113,12 @@ body {
 .rail {
   position: relative;
   padding-top: 2.8rem;
-  text-align: right; /* labels hug the vertical line at the right edge of the rail */
 }
 .rail .rnum {
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
-  padding-right: 1.1rem; /* small gap between label and the line (keeps the dot anchored to the rail edge) */
 }
 .rail .rlbl {
   font-family: var(--font-mono);
@@ -128,7 +126,6 @@ body {
   letter-spacing: 0.14em;
   color: var(--ink-2);
   margin-top: 0.25rem;
-  padding-right: 1.1rem;
 }
 .rail .rdot {
   position: absolute;
@@ -444,10 +441,6 @@ body {
 .footer-inner .foot-mid { text-transform: uppercase; }
 
 /* ---- Responsive ---- */
-/* Mid-size screens: shrink the rail so the content column isn't crushed */
-@media (max-width: 1080px) {
-  :root { --rail-w: 150px; }
-}
 @media (max-width: 760px) {
   .sec { grid-template-columns: 1fr; }
   .rail {
