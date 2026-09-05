@@ -59,7 +59,7 @@ body {
 }
 .topbar-inner {
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 0; /* left-aligned so the layout hugs the left edge */
   padding: 0.7rem 1.5rem;
   display: flex;
   align-items: center;
@@ -102,7 +102,8 @@ body {
 }
 
 /* ---- Section / timeline layout ---- */
-.wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+/* used AI to left-align the layout so the timeline menu hugs the left edge */
+.wrap { max-width: var(--max-width); margin: 0; padding: 0 1.5rem; }
 /* used AI to widen the left timeline rail so the menu/line sits further right */
 .sec {
   display: grid;
