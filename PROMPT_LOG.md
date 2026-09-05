@@ -198,3 +198,21 @@ yes
 ```
 can you upload a copy of the prompt log in the github repo
 ```
+
+### Prompt 34
+```
+yes, push
+```
+
+### Prompt 35
+```
+are all these requirements met:
+[pasted the assignment's full "Detailed Requirements" and "Grading Rubric"
+(content, technical, AI-usage, and interactivity requirements) — asking whether
+the site satisfies all of them]
+```
+
+### Prompt 36 _(included a reference image)_
+```
+my skills: Java, Python, SQL, HTML, CSS, JavaScript, Microsoft Office Suite, English, Hindi, Spanish
+```

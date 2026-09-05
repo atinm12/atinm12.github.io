@@ -142,6 +142,14 @@ body {
   text-decoration-thickness: 3px;
   text-underline-offset: 4px;
 }
+/* used AI: active-section highlight, toggled by the IntersectionObserver script */
+.topnav a.active {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ball);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
 
 /* ---- Section / timeline layout ---- */
 /* used AI to left-align the layout so the timeline menu hugs the left edge */
@@ -244,6 +252,41 @@ body {
   pointer-events: none;
 }
 .hero-deco svg { width: 100%; height: auto; }
+
+/* ---- About extras: Interests / Skills chip groups ---- */
+/* used AI to style the Interests/Skills chip groups */
+.about-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 3rem;
+  margin-top: 2.2rem;
+}
+.about-group { flex: 1 1 240px; }
+.about-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0 0 0.75rem;
+}
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+.chips li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  padding: 0.35rem 0.8rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper-2);
+}
 
 /* ---- Section headings ---- */
 .h-sec {
