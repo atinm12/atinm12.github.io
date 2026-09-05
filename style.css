@@ -54,7 +54,52 @@ body {
   background: var(--paper);
   border-bottom: 2px solid var(--ink);
 }
+
+/* used AI: pickleball that continuously bounces left <-> right across the top bar */
+.bounce-track {
+  position: absolute;
+  left: 0;
+  bottom: -11px;            /* rest centered on the nav's bottom line */
+  width: 22px;
+  height: 22px;
+  z-index: 0;               /* behind the nav text so labels stay readable */
+  pointer-events: none;
+  animation: pb-travel 5.5s linear infinite alternate;
+}
+.bounce-hop {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: pb-hop 0.85s infinite;
+}
+.bounce-ball {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("pickleball.png") center / contain no-repeat;
+  animation: pb-spin 2.4s linear infinite;
+}
+@keyframes pb-travel {
+  from { left: 0; }
+  to   { left: calc(100% - 22px); }
+}
+@keyframes pb-hop {
+  0%   { transform: translateY(0);     animation-timing-function: cubic-bezier(0.3, 0, 0.7, 0.35); }
+  50%  { transform: translateY(-16px); animation-timing-function: cubic-bezier(0.3, 0.65, 0.7, 1); }
+  100% { transform: translateY(0); }
+}
+@keyframes pb-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bounce-track { animation: none; left: auto; right: 1.5rem; }
+  .bounce-hop, .bounce-ball { animation: none; }
+}
+
 .topbar-inner {
+  position: relative;
+  z-index: 1;              /* nav content sits above the bouncing ball */
   max-width: var(--max-width);
   margin: 0; /* left-aligned so the layout hugs the left edge */
   padding: 0.7rem 1.5rem;
