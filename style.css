@@ -32,18 +32,15 @@ body {
   background: var(--paper);
 }
 
-/* ---- Reusable pickleball (yellow circle with holes) ---- */
+/* ---- Reusable pickleball (uses the pickleball.png photo with its white background removed) ---- */
+/* used AI to swap the CSS-drawn pickleballs for the pickleball.png image */
 .pb {
   display: inline-block;
-  border-radius: 50%;
   flex-shrink: 0;
-  border: 1px solid var(--ball-line);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(0,0,0,0.32) 8%, transparent 9%),
-    radial-gradient(circle at 63% 27%, rgba(0,0,0,0.32) 8%, transparent 9%),
-    radial-gradient(circle at 38% 62%, rgba(0,0,0,0.32) 8%, transparent 9%),
-    radial-gradient(circle at 68% 60%, rgba(0,0,0,0.32) 8%, transparent 9%),
-    var(--ball);
+  background-image: url("pickleball.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .pb-nav  { width: 26px; height: 26px; }
 .pb-rail { width: 18px; height: 18px; }
@@ -334,7 +331,6 @@ body {
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
-  box-shadow: 0 0 0 4px rgba(211, 229, 63, 0.25);
 }
 .proj-title {
   font-family: var(--font-mono);
