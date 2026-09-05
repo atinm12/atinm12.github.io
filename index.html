@@ -1,340 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- used AI to develop the basic page structure -->
+<!-- used AI to develop the page structure; layout based on a design mockup provided by Atin Mathur -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atin Mathur</title>
-  <style>
-    /* used AI to build the clean, modern styling for the page */
-    :root {
-      --bg: #ffffff;
-      --surface: #f7f8fa;
-      --text: #1a1a1a;
-      --muted: #5c6470;
-      --border: #e4e7ec;
-      --accent: #2563eb;
-      --accent-soft: #eff4ff;
-      --radius: 12px;
-      --max-width: 720px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 5rem; /* offset for the sticky nav */
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-    }
-
-    /* ---- Top navigation menu ---- */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: saturate(180%) blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.9rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .nav-brand {
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none;
-      color: var(--text);
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: color 0.15s ease;
-    }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* ---- Layout ---- */
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-    }
-    section { margin-bottom: 3.5rem; }
-    section h2 {
-      font-size: 1.5rem;
-      margin: 0 0 1.25rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--accent-soft);
-    }
-
-    /* ---- About / hero ---- */
-    .about-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-    }
-    /* Photo placeholder — replace the <div> below with <img src="your-photo.jpg" alt="Atin Mathur" class="photo"> */
-    .photo {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, #dbe4ff, #eef2ff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent);
-      border: 1px solid var(--border);
-    }
-    .about-header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .about-header .tagline {
-      margin: 0.25rem 0 0;
-      color: var(--muted);
-    }
-
-    /* ---- Chips (interests / skills) ---- */
-    .subhead {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      margin: 1.5rem 0 0.6rem;
-    }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .chips li {
-      background: var(--accent-soft);
-      color: var(--accent);
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-    }
-
-    /* ---- Experience ---- */
-    .experience-item { margin-bottom: 1.5rem; }
-    .experience-item h3 {
-      margin: 0 0 0.25rem;
-      font-size: 1.05rem;
-    }
-    .experience-item p { margin: 0; }
-
-    /* ---- Projects ---- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      background: var(--surface);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    }
-    .project-card h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
-    .project-card p { margin: 0 0 0.75rem; color: var(--muted); font-size: 0.92rem; }
-    .project-card a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
-    .project-card a:hover { text-decoration: underline; }
-    .project-card.placeholder {
-      border-style: dashed;
-      background: transparent;
-    }
-    .project-card.placeholder h3 { color: var(--muted); }
-
-    /* ---- Contact ---- */
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .contact-links a {
-      display: inline-block;
-      padding: 0.6rem 1.1rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.15s ease, color 0.15s ease;
-    }
-    .contact-links a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ---- Footer / credits ---- */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-    footer a { color: var(--muted); }
-  </style>
+  <!-- Fonts (Google Fonts) with system fallbacks; styling lives in style.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- used AI to build the sticky navigation menu -->
-  <nav>
-    <div class="nav-inner">
-      <a class="nav-brand" href="#bio">Atin Mathur</a>
-      <div class="nav-links">
-        <a href="#bio">Bio</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact Me</a>
-      </div>
+
+  <!-- ===== Top bar ===== -->
+  <!-- used AI to build the top bar; AM monogram drawn as inline SVG -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#bio">
+        <!-- AM monogram -->
+        <svg class="mark" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 36 L16 6 L26 36 M10 27 L22 27" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 36 L24 12 L31 23 L38 12 L38 36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="6" r="3.4" fill="#d3e53f" stroke="#b6cb2c" stroke-width="1"/>
+        </svg>
+        <span class="wordmark">ATIN MATHUR</span>
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#bio">BIO</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+        <span class="pb pb-nav" aria-hidden="true"></span>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main>
-    <!-- used AI to build the Bio section layout; bio text written by Atin Mathur -->
-    <section id="bio">
-      <h2>Bio</h2>
-      <div class="about-header">
-        <!-- Photo placeholder: swap this div for an <img> tag with your own photo -->
-        <div class="photo" aria-label="Photo placeholder">AM</div>
-        <div>
-          <h1>Atin Mathur</h1>
-          <p class="tagline">Information Systems &amp; HCI student at Carnegie Mellon</p>
+  <div class="wrap">
+
+    <!-- ===== 01 · Bio ===== -->
+    <!-- used AI to build the Bio/hero section; bio text written by Atin Mathur -->
+    <section class="sec" id="bio">
+      <div class="rail">
+        <div class="rnum">01</div>
+        <div class="rlbl">BIO</div>
+        <span class="pb pb-rail rdot" aria-hidden="true"></span>
+      </div>
+      <div class="body">
+        <!-- Decorative pickleball + dashed bounce arc (no label) -->
+        <div class="hero-deco" aria-hidden="true">
+          <svg viewBox="0 0 210 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="52" r="13" fill="#d3e53f" stroke="#b6cb2c" stroke-width="1.5"/>
+            <circle cx="15" cy="47" r="1.6" fill="rgba(0,0,0,0.32)"/>
+            <circle cx="25" cy="47" r="1.6" fill="rgba(0,0,0,0.32)"/>
+            <circle cx="18" cy="56" r="1.6" fill="rgba(0,0,0,0.32)"/>
+            <circle cx="26" cy="56" r="1.6" fill="rgba(0,0,0,0.32)"/>
+            <path d="M38 54 C 90 6, 150 6, 168 40 L176 58 L196 20" stroke="#17281a" stroke-width="2" stroke-dasharray="5 6" stroke-linecap="round" fill="none"/>
+          </svg>
         </div>
-      </div>
 
-      <p>Hi! My name is Atin Mathur and I'm from Princeton, NJ. I'm a student at Carnegie Mellon University majoring in Information Systems and Human-Computer Interaction. On campus, you can find me in different organizations around campus, taking classes, or eating halal food.</p>
-
-      <!-- Placeholder interests — replace with your own -->
-      <p class="subhead">Interests</p>
-      <ul class="chips">
-        <li>Human-Computer Interaction</li>
-        <li>AI in Education</li>
-        <li>Product Design</li>
-        <li>Campus Organizations</li>
-        <li>Halal Food</li>
-      </ul>
-
-      <!-- Placeholder skills — replace with your own -->
-      <p class="subhead">Skills</p>
-      <ul class="chips">
-        <li>Skill 1</li>
-        <li>Skill 2</li>
-        <li>Skill 3</li>
-        <li>Skill 4</li>
-        <li>Skill 5</li>
-      </ul>
-    </section>
-
-    <!-- used AI to build the experience section; experience descriptions written by Atin Mathur -->
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="experience-item">
-        <h3>Research Assistant &mdash; CMU McLearn Lab</h3>
-        <p>This summer, I worked as a Research Assistant at CMU's McLearn Lab under Prof. Bruce M. McLaren, developing and evaluating an LLM-powered Socratic dialogue tutoring system targeting students' decimal misconceptions.</p>
-      </div>
-
-      <div class="experience-item">
-        <h3>TailorTab</h3>
-        <p>TailorTab is a Chrome extension that surfaces search results tailored to a user's common search patterns and the time of day. It placed 3rd out of 1,300+ teams at the Mind the Product World Product Day Hackathon.</p>
-      </div>
-
-      <div class="experience-item">
-        <h3>Zetheta Algorithms</h3>
-        <p>At Zetheta Algorithms, I built an autonomous financial research agent that plans and executes multi-step research tasks, pulling from 10+ tools and a 3-layer memory system to limit hallucinations.</p>
-      </div>
-
-      <div class="experience-item">
-        <h3>Riseva</h3>
-        <p>Riseva is an AI-powered educational tool with 15 customizable parameters that lets teachers guide an LLM's output to shape student thinking, delivering personalized student responses and real-time insights into how students are reasoning. It placed 2nd out of 60+ teams at ProdHacks.</p>
+        <h1 class="hero-name">Atin<br>Mathur</h1>
+        <p class="hero-sub">Information Systems &times; HCI</p>
+        <div class="hero-underline"></div>
+        <p class="hero-lead">Hi! My name is Atin Mathur and I'm from Princeton, NJ. I'm a student at Carnegie Mellon University majoring in <strong>Information Systems</strong> and <strong>Human-Computer Interaction</strong>. On campus, you can find me in different organizations around campus, taking classes, or eating halal food.</p>
       </div>
     </section>
 
-    <!-- used AI to build the projects section with placeholder cards -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
+    <!-- ===== 02 · Experience ===== -->
+    <!-- used AI to build the experience cards; experience descriptions written by Atin Mathur -->
+    <section class="sec" id="experience">
+      <div class="rail">
+        <div class="rnum">02</div>
+        <div class="rlbl">EXPERIENCE</div>
+        <span class="pb pb-rail rdot" aria-hidden="true"></span>
+      </div>
+      <div class="body">
+        <h2 class="h-sec">02 / Experience</h2>
+        <div class="exp-grid">
 
-        <!-- This portfolio project itself -->
-        <div class="project-card">
-          <h3>This Portfolio Website</h3>
-          <p>The site you're looking at &mdash; a personal portfolio built from scratch with HTML and CSS, hosted on GitHub Pages.</p>
-          <a href="https://github.com/atinm12/atinm12.github.io" target="_blank" rel="noopener">View source &rarr;</a>
-        </div>
+          <article class="exp-card">
+            <div class="exp-top">
+              <span class="exp-num">01</span>
+              <span class="exp-kicker">Summer 2026</span>
+            </div>
+            <h3 class="exp-title">CMU McLearn Lab</h3>
+            <p class="exp-role">Research Assistant</p>
+            <p class="exp-tags">LLMs &middot; Education &middot; HCI</p>
+            <p class="exp-desc">Developing and evaluating an LLM-powered Socratic dialogue tutoring system targeting students' decimal misconceptions, under Prof. Bruce M. McLaren.</p>
+            <span class="pb pb-card" aria-hidden="true"></span>
+          </article>
 
-        <!-- Placeholder cards for future projects — replace with real projects -->
-        <div class="project-card placeholder">
-          <h3>Project Title</h3>
-          <p>A short description of what this project does and the tools you used to build it.</p>
-          <a href="#">Learn more &rarr;</a>
-        </div>
+          <article class="exp-card">
+            <div class="exp-top">
+              <span class="exp-num">02</span>
+              <span class="exp-kicker hot">3rd Place</span>
+            </div>
+            <h3 class="exp-title">TailorTab</h3>
+            <p class="exp-tags">Product &middot; AI &middot; Chrome</p>
+            <p class="exp-hot">1,300+ teams &middot; Mind the Product</p>
+            <p class="exp-desc">A Chrome extension that surfaces search results tailored to a user's common search patterns and the time of day.</p>
+            <span class="pb pb-card" aria-hidden="true"></span>
+          </article>
 
-        <div class="project-card placeholder">
-          <h3>Project Title</h3>
-          <p>A short description of what this project does and the tools you used to build it.</p>
-          <a href="#">Learn more &rarr;</a>
-        </div>
+          <article class="exp-card">
+            <div class="exp-top">
+              <span class="exp-num">03</span>
+              <span class="exp-kicker">AI Agent</span>
+            </div>
+            <h3 class="exp-title">Zetheta Algorithms</h3>
+            <p class="exp-tags">AI &middot; Finance &middot; Agents</p>
+            <p class="exp-desc">An autonomous financial research agent that plans and executes multi-step research tasks across 10+ tools, with a 3-layer memory system to limit hallucinations.</p>
+            <span class="pb pb-card" aria-hidden="true"></span>
+          </article>
 
-        <div class="project-card placeholder">
-          <h3>Project Title</h3>
-          <p>A short description of what this project does and the tools you used to build it.</p>
-          <a href="#">Learn more &rarr;</a>
+          <article class="exp-card">
+            <div class="exp-top">
+              <span class="exp-num">04</span>
+              <span class="exp-kicker hot">2nd Place</span>
+            </div>
+            <h3 class="exp-title">Riseva</h3>
+            <p class="exp-tags">AI &middot; EdTech &middot; Design</p>
+            <p class="exp-hot">60+ teams &middot; ProdHacks</p>
+            <p class="exp-desc">An AI tool with 15 customizable parameters that lets teachers shape an LLM's output and see real-time insight into how students reason.</p>
+            <span class="pb pb-card" aria-hidden="true"></span>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- used AI to build the contact section; update the LinkedIn link with your profile -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Feel free to reach out &mdash; I'd love to connect.</p>
-      <div class="contact-links">
-        <a href="mailto:atinmathur12@gmail.com">Email</a>
-        <a href="https://github.com/atinm12" target="_blank" rel="noopener">GitHub</a>
-        <!-- Replace # with your LinkedIn profile URL -->
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- ===== 03 · Projects ===== -->
+    <!-- used AI to build the projects section; icons are placeholder inline SVGs -->
+    <section class="sec" id="projects">
+      <div class="rail">
+        <div class="rnum">03</div>
+        <div class="rlbl">PROJECTS</div>
+        <span class="pb pb-rail rdot" aria-hidden="true"></span>
+      </div>
+      <div class="body">
+        <div class="proj-head">
+          <h2 class="h-sec">03 / Projects</h2>
+          <!-- Placeholder link — point this at a projects page or repo list when you have one -->
+          <a class="proj-all" href="#">View all projects &rarr;</a>
+        </div>
+        <div class="proj-grid">
+
+          <article class="proj-card">
+            <div class="proj-icon" aria-hidden="true">
+              <!-- monitor / web icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M8.5 21h7M12 17v4"/></svg>
+            </div>
+            <span class="pb pb-card" aria-hidden="true"></span>
+            <h3 class="proj-title">This Portfolio Website</h3>
+            <div class="proj-tags"><span>Web</span><span>HTML</span><span>CSS</span></div>
+            <p class="proj-desc">The site you're looking at &mdash; a personal portfolio built from scratch and hosted on GitHub Pages.</p>
+            <a class="proj-link" href="https://github.com/atinm12/atinm12.github.io" target="_blank" rel="noopener">View source &rarr;</a>
+          </article>
+
+          <article class="proj-card">
+            <div class="proj-icon" aria-hidden="true">
+              <!-- puzzle / extension icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 1 1 4 0v1.5h3a1 1 0 0 1 1 1V10h1.5a2 2 0 1 1 0 4H18v3.5a1 1 0 0 1-1 1H14V20a2 2 0 1 1-4 0v-1.5H6.5a1 1 0 0 1-1-1V14H4a2 2 0 1 1 0-4h1.5V6.5a1 1 0 0 1 1-1H10Z"/></svg>
+            </div>
+            <span class="pb pb-card" aria-hidden="true"></span>
+            <h3 class="proj-title">TailorTab</h3>
+            <div class="proj-tags"><span>AI</span><span>Product</span><span>Chrome</span></div>
+            <p class="proj-desc">A Chrome extension that surfaces search results tailored to your habits and the time of day. 3rd of 1,300+ teams at Mind the Product.</p>
+            <!-- Placeholder link — add the project/demo URL -->
+            <a class="proj-link" href="#">Explore &rarr;</a>
+          </article>
+
+          <article class="proj-card">
+            <div class="proj-icon" aria-hidden="true">
+              <!-- spark / learning icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/><circle cx="12" cy="12" r="2.5"/></svg>
+            </div>
+            <span class="pb pb-card" aria-hidden="true"></span>
+            <h3 class="proj-title">Riseva</h3>
+            <div class="proj-tags"><span>AI</span><span>EdTech</span><span>Design</span></div>
+            <p class="proj-desc">An AI teaching tool with 15 tunable parameters and real-time insight into student reasoning. 2nd of 60+ teams at ProdHacks.</p>
+            <!-- Placeholder link — add the project/demo URL -->
+            <a class="proj-link" href="#">Explore &rarr;</a>
+          </article>
+
+        </div>
       </div>
     </section>
-  </main>
 
-  <!-- Credits: page structure, styling, and layout developed with the help of AI (Claude).
-       All bio and experience text written by Atin Mathur. No external images, text, or
-       templates were used; the photo above is a placeholder to be replaced with a personal photo. -->
-  <footer>
-    <p>&copy; 2026 Atin Mathur &middot; Built with the help of AI (Claude). All written content by Atin Mathur.</p>
+    <!-- ===== 04 · Contact ===== -->
+    <!-- used AI to build the contact section; update the LinkedIn link with your profile URL -->
+    <section class="sec" id="contact">
+      <div class="rail">
+        <div class="rnum">04</div>
+        <div class="rlbl">CONTACT</div>
+        <span class="pb pb-rail rdot" aria-hidden="true"></span>
+      </div>
+      <div class="body">
+        <div class="contact-wrap">
+          <div class="contact-left">
+            <p class="contact-eyebrow">04 / CONTACT</p>
+            <h2 class="contact-h">Let's build<br>something.</h2>
+            <ul class="contact-links">
+              <li>
+                <a href="https://github.com/atinm12" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.7c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+                  github.com/atinm12
+                </a>
+              </li>
+              <li>
+                <!-- Placeholder LinkedIn — replace href with your profile URL -->
+                <a href="#">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.65h.05c.53-1 1.83-2.05 3.76-2.05C20.7 8.6 22 10.3 22 13.4V21h-4v-6.75c0-1.61-.03-3.68-2.24-3.68-2.24 0-2.58 1.75-2.58 3.56V21H9V9Z"/></svg>
+                  linkedin.com/in/atinm12
+                </a>
+              </li>
+              <li>
+                <a href="mailto:atinmathur12@gmail.com">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+                  atinmathur12@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="court" aria-hidden="true">
+            <!-- Decorative pickleball court -->
+            <svg viewBox="0 0 240 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="236" height="146" rx="2" fill="#faf9f0" stroke="#17281a" stroke-width="2"/>
+              <line x1="120" y1="2" x2="120" y2="148" stroke="#17281a" stroke-width="2"/>
+              <line x1="74" y1="2" x2="74" y2="148" stroke="#17281a" stroke-width="1.4"/>
+              <line x1="166" y1="2" x2="166" y2="148" stroke="#17281a" stroke-width="1.4"/>
+              <line x1="74" y1="75" x2="166" y2="75" stroke="#17281a" stroke-width="1.4"/>
+              <circle cx="120" cy="75" r="12" fill="#d3e53f" stroke="#b6cb2c" stroke-width="1.5"/>
+              <circle cx="115.5" cy="70.5" r="1.5" fill="rgba(0,0,0,0.32)"/>
+              <circle cx="124.5" cy="70.5" r="1.5" fill="rgba(0,0,0,0.32)"/>
+              <circle cx="118" cy="79" r="1.5" fill="rgba(0,0,0,0.32)"/>
+              <circle cx="125" cy="79" r="1.5" fill="rgba(0,0,0,0.32)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Credits: page structure, styling, and layout developed with the help of AI (Claude),
+       based on a design mockup provided by Atin Mathur. All bio and experience text written by
+       Atin Mathur. Fonts: Anton & Space Mono via Google Fonts (SIL Open Font License).
+       Photo/LinkedIn/project links are placeholders to be filled in. -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <svg class="mark" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 36 L16 6 L26 36 M10 27 L22 27" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 36 L24 12 L31 23 L38 12 L38 36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="16" cy="6" r="3.4" fill="#d3e53f"/>
+      </svg>
+      <span class="foot-mid">ATIN MATHUR</span>
+      <span>&copy; 2026 ATIN MATHUR</span>
+    </div>
   </footer>
+
 </body>
 </html>
