@@ -460,10 +460,10 @@
                     moveProgress = 1;
                     isMoving = false;
 
-                    // Update score
-                    if (player.position.z > maxZ) {
-                        maxZ = player.position.z;
-                        score = Math.floor(maxZ / GRID_SIZE);
+                    // Update score (use the snapped target, not the mid-hop position)
+                    if (moveEnd.z > maxZ) {
+                        maxZ = moveEnd.z;
+                        score = Math.round(maxZ / GRID_SIZE);
                         document.getElementById('score').textContent = score;
                     }
                 }
