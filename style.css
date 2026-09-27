@@ -457,6 +457,7 @@ body {
   color: var(--ink);
 }
 .proj-link:hover { text-decoration: underline; text-decoration-color: var(--ball-line); text-underline-offset: 3px; }
+.proj-link + .proj-link { margin-left: 1.25rem; }
 
 /* ---- Contact ---- */
 .contact-wrap {
